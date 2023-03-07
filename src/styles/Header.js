@@ -2,18 +2,29 @@ import styled from "styled-components";
 
 export const HeaderElement = styled.header`
   width: 100%;
-  background-color: #007dd1;
+  background-color: #111747;
 
   &::after {
     content: "Clima e previsão do tempo";
     color: white;
     padding: 0 1%;
-    background-color: #004586;
+    background-color: #465193;
     max-width: 100%;
     height: 30px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
+`;
+
+export const DivForm = styled.div`
+  width: 100%;
+  height: 40px;
+  background-color: #465193;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Div = styled.div`
@@ -34,25 +45,29 @@ export const Div = styled.div`
     display: flex;
   }
   div input {
+    border: none;
+    background-color: transparent;
     outline: none;
     margin: 0 5px;
     width: 100%;
     height: 30px;
     font-size: 1rem;
     padding: 0.5rem;
-
+    color: white;
     &::placeholder {
       opacity: 0.5;
       font-size: 0.8rem;
+      color: white;
     }
   }
 
   button {
-    background-color: #198754;
+    background-color: transparent;
     color: white;
-    border: 1px solid #39cd5b5e;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    padding: 0 0.5rem;
+    text-align: center;
+    padding: 0 0.8rem;
   }
 `;

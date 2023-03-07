@@ -16,15 +16,15 @@ export const DivInfos = styled.div`
   min-height: 80px;
   padding: 1rem;
   border-radius: 4px;
-  background-color: #ccc;
+  background-color: rgb(43, 83, 152);
 `;
 
 export const H2Title = styled.h2`
-  color: #004586;
+  color: white;
 `;
 
 export const DivColorzied = styled.div`
-  color: #a20695;
+  color: white;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -38,7 +38,7 @@ export const DivUseful = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #a20695;
+  color: white;
   font-weight: 600;
 `;
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Data from "../Screens/Data";
-import { Div, HeaderElement } from "../styles/Header";
+import { Div, HeaderElement, DivForm } from "../styles/Header";
+import { VscSearch } from "react-icons/vsc";
 
 const Header = () => {
   const inputElement = React.useRef();
@@ -15,14 +16,16 @@ const Header = () => {
       <HeaderElement>
         <Div>
           <h1>Clima Tempo</h1>
-          <div>
+          <DivForm>
             <input
               ref={inputElement}
               type="text"
               placeholder="Busque por uma cidade"
             />
-            <button onClick={handleClick}>Pesquisar</button>
-          </div>
+            <button onClick={handleClick}>
+              <VscSearch size={20} />
+            </button>
+          </DivForm>
         </Div>
       </HeaderElement>
 

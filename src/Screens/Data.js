@@ -26,11 +26,16 @@ const Data = ({ value }) => {
     return (value - 273.15).toFixed(0);
   };
 
+  const location = navigator.geolocation.getCurrentPosition((loc) => {
+    console.log(loc);
+  });
+  console.log(location);
+
   return (
     <DivWraper>
       <DivInfos>
         <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
-        <H2Title>{data && data.name}</H2Title>
+        <H2Title>Clima em: {data && data.name}</H2Title>
         <DivColorzied>
           <span>
             Temp: {""}
