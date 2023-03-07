@@ -9,7 +9,7 @@ export const HeaderElement = styled.header`
     color: white;
     padding: 0 1%;
     background-color: #004586;
-    width: 100%;
+    max-width: 100%;
     height: 30px;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@ export const Div = styled.div`
   button {
     background-color: #198754;
     color: white;
-    border: 1px solid #fed3da;
+    border: 1px solid #39cd5b5e;
     border-radius: 4px;
     cursor: pointer;
     padding: 0 0.5rem;
