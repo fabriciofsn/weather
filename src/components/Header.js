@@ -4,7 +4,6 @@ import { Div, HeaderElement } from "../styles/Header";
 
 const Header = () => {
   const inputElement = React.useRef();
-
   const [inputValue, setInputValue] = React.useState("");
 
   const handleClick = () => {
@@ -26,6 +25,7 @@ const Header = () => {
           </div>
         </Div>
       </HeaderElement>
+
       {inputValue && <Data value={{ inputValue }} />}
     </div>
   );

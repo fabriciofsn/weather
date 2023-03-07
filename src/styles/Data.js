@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivWraper = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 30px auto;
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@ export const H2Title = styled.h2`
 `;
 
 export const DivColorzied = styled.div`
-  color: #e54;
+  color: #a20695;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -38,6 +38,11 @@ export const DivUseful = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #e54;
+  color: #a20695;
   font-weight: 600;
+`;
+
+export const DivSpin = styled.div`
+  position: absolute;
+  text-align: center;
 `;

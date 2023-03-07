@@ -7,6 +7,7 @@ import {
   H2Title,
   DivColorzied,
   DivUseful,
+  DivSpin,
 } from "../styles/Data";
 
 const Data = ({ value }) => {
@@ -19,7 +20,7 @@ const Data = ({ value }) => {
     request().then((response) => {
       setData(response);
     });
-  }, [data]);
+  }, [value]);
 
   const conveterToCelsius = (value) => {
     return (value - 273.15).toFixed(0);
@@ -28,6 +29,7 @@ const Data = ({ value }) => {
   return (
     <DivWraper>
       <DivInfos>
+        <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
         <H2Title>{data && data.name}</H2Title>
         <DivColorzied>
           <span>
