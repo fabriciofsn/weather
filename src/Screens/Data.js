@@ -26,11 +26,6 @@ const Data = ({ value }) => {
     return (value - 273.15).toFixed(0);
   };
 
-  const location = navigator.geolocation.getCurrentPosition((loc) => {
-    console.log(loc);
-  });
-  console.log(location);
-
   return (
     <DivWraper>
       <DivInfos>
