@@ -9,6 +9,7 @@ import {
   DivUseful,
   DivSpin,
 } from "../styles/Data";
+import Maps from "./Maps";
 
 const Data = ({ value }) => {
   const [data, setData] = React.useState("");
@@ -27,39 +28,46 @@ const Data = ({ value }) => {
   };
 
   return (
-    <DivWraper>
-      <DivInfos>
-        <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
-        <H2Title>Clima em: {data && data.name}</H2Title>
-        <DivColorzied>
-          <span>
-            Temp: {""}
-            <p>{data && conveterToCelsius(data.main.temp)}º</p>
-          </span>
-          <span>
-            Sensação:
-            <p>{data && conveterToCelsius(data.main.feels_like)}º</p>
-          </span>
-          <span>
-            Temp Max:
-            <p>{data && conveterToCelsius(data.main.temp_max)}º</p>
-          </span>
-          <span>
-            Temp Min:
-            <p>{data && conveterToCelsius(data.main.temp_min)}º</p>
-          </span>
-        </DivColorzied>
-        <DivUseful>
-          <span>
-            Clima:
-            {data &&
-              data.weather.map(({ description }) => {
-                return <p key={description}>{description}</p>;
-              })}
-          </span>
-        </DivUseful>
-      </DivInfos>
-    </DivWraper>
+    <div>
+      {isLoading && (
+        <DivSpin>
+          <img src={spin} alt="loader" />
+        </DivSpin>
+      )}
+      <DivWraper>
+        <DivInfos>
+          <H2Title>Clima em: {data && data.name}</H2Title>
+          <DivColorzied>
+            <span>
+              Temp: {""}
+              <p>{data && conveterToCelsius(data.main.temp)}º</p>
+            </span>
+            <span>
+              Sensação:
+              <p>{data && conveterToCelsius(data.main.feels_like)}º</p>
+            </span>
+            <span>
+              Temp Max:
+              <p>{data && conveterToCelsius(data.main.temp_max)}º</p>
+            </span>
+            <span>
+              Temp Min:
+              <p>{data && conveterToCelsius(data.main.temp_min)}º</p>
+            </span>
+          </DivColorzied>
+          <DivUseful>
+            <span>
+              Clima:
+              {data &&
+                data.weather.map(({ description }) => {
+                  return <p key={description}>{description}</p>;
+                })}
+            </span>
+          </DivUseful>
+        </DivInfos>
+        <DivInfos>{<Maps />}</DivInfos>
+      </DivWraper>
+    </div>
   );
 };
 

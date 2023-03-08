@@ -8,15 +8,22 @@ export const DivWraper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const DivInfos = styled.div`
   width: 100%;
   max-width: 400px;
-  min-height: 80px;
+  min-height: 220px;
   padding: 1rem;
   border-radius: 4px;
   background-color: rgb(43, 83, 152);
+  @media (max-width: 800px) {
+    margin: 5px 0;
+  }
 `;
 
 export const H2Title = styled.h2`
