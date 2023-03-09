@@ -9,6 +9,7 @@ import {
   DivUseful,
   DivSpin,
 } from "../styles/Data";
+import Error from "./Error";
 import Maps from "./Maps";
 
 const Data = ({ value }) => {
@@ -16,11 +17,16 @@ const Data = ({ value }) => {
   const { request, isLoading } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${value.inputValue}&appid=a448ce24c0332de60c32afff7f64718a&lang=pt`
   );
+  const [hasError, setHasError] = React.useState(false);
 
   useEffect(() => {
-    request().then((response) => {
-      setData(response);
-    });
+    request()
+      .then((response) => {
+        setData(response);
+      })
+      .catch(() => {
+        setHasError(true);
+      });
   }, [value]);
 
   const conveterToCelsius = (value) => {
@@ -29,11 +35,8 @@ const Data = ({ value }) => {
 
   return (
     <div>
-      {isLoading && (
-        <DivSpin>
-          <img src={spin} alt="loader" />
-        </DivSpin>
-      )}
+      {hasError && <Error />}
+      <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
       <DivWraper>
         <DivInfos>
           <H2Title>Clima em: {data && data.name}</H2Title>

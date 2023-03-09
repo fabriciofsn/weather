@@ -36,6 +36,10 @@ export const Div = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 735px) {
+    flex-direction: column;
+  }
+
   h1 {
     color: #fed3da;
   }

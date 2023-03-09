@@ -51,5 +51,7 @@ export const DivUseful = styled.div`
 
 export const DivSpin = styled.div`
   position: absolute;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
