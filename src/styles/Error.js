@@ -19,9 +19,13 @@ export const Bg = styled.div`
   padding: 1rem;
   width: 100%;
   max-width: 400px;
-  min-height: 300px;
-  position: fixed;
-
+  max-height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   p {
     position: absolute;
     top: -15px;
