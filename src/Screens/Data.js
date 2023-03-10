@@ -14,10 +14,10 @@ import Maps from "./Maps";
 
 const Data = ({ value }) => {
   const [data, setData] = React.useState("");
-  const { request, isLoading, error } = useFetch(
+  const { request, isLoading, error, setError } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${value.inputValue}&appid=a448ce24c0332de60c32afff7f64718a&lang=pt`
   );
-  console.log(error);
+
   useEffect(() => {
     request().then((response) => {
       setData(response);
@@ -32,6 +32,7 @@ const Data = ({ value }) => {
     <div>
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
       <DivWraper>
+        {error && <Error showError={setError} />}
         <DivInfos>
           <H2Title>Clima em: {data && data.name}</H2Title>
           <DivColorzied>

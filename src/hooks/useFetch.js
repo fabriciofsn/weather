@@ -3,6 +3,7 @@ import React from "react";
 const useFetch = (URL) => {
   const [error, setError] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
+
   const request = async () => {
     let data;
 
@@ -24,7 +25,7 @@ const useFetch = (URL) => {
       return setError(true);
     }
   };
-  return { request, isLoading, error };
+  return { request, isLoading, error, setError };
 };
 
 export default useFetch;

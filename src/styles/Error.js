@@ -13,15 +13,15 @@ const anim = keyframes`
 
 export const Bg = styled.div`
   animation: ${anim} 0.3s ease;
-  background-color: #dc3545;
+  background-color: rgb(16, 127, 99);
   text-align: center;
   border-radius: 5px;
   padding: 1rem;
   width: 100%;
   max-width: 400px;
   min-height: 300px;
-  position: absolute;
-  align-self: center;
+  position: fixed;
+
   p {
     position: absolute;
     top: -15px;
