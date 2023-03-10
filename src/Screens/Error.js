@@ -9,7 +9,7 @@ const Error = ({ showError }) => {
     <Bg>
       <AiOutlineCloseCircle color="#F37B7B" size={35} />
       <h1>Atenção!</h1>
-      <p>Aconteceu um erro na sua requisição, tente novamente</p>
+      <p>Ocorreu um erro na sua requisição, tente novamente</p>
       <BtnElement onClick={closeModal}>Ok</BtnElement>
     </Bg>
   );
