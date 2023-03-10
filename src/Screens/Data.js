@@ -14,19 +14,14 @@ import Maps from "./Maps";
 
 const Data = ({ value }) => {
   const [data, setData] = React.useState("");
-  const { request, isLoading } = useFetch(
+  const { request, isLoading, error } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${value.inputValue}&appid=a448ce24c0332de60c32afff7f64718a&lang=pt`
   );
-  const [hasError, setHasError] = React.useState(false);
-
+  console.log(error);
   useEffect(() => {
-    request()
-      .then((response) => {
-        setData(response);
-      })
-      .catch(() => {
-        setHasError(true);
-      });
+    request().then((response) => {
+      setData(response);
+    });
   }, [value]);
 
   const conveterToCelsius = (value) => {
@@ -35,7 +30,6 @@ const Data = ({ value }) => {
 
   return (
     <div>
-      {hasError && <Error />}
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
       <DivWraper>
         <DivInfos>

@@ -16,7 +16,11 @@ const Header = () => {
   }, [response]);
 
   const handleClick = () => {
-    setInputValue(inputElement.current.value);
+    if (inputElement.current.value) {
+      setInputValue(inputElement.current.value);
+      inputElement.current.value = "";
+      inputElement.current.focus();
+    }
   };
 
   return (
@@ -36,6 +40,7 @@ const Header = () => {
           </DivForm>
         </Div>
       </HeaderElement>
+
       {inputValue && <Data value={{ inputValue }} />}
     </div>
   );

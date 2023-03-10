@@ -3,23 +3,26 @@ import React from "react";
 const useFetch = (URL) => {
   const [error, setError] = React.useState(false);
   const [isLoading, setLoading] = React.useState(false);
-
   const request = async () => {
     let data;
-    let fetching;
 
     try {
       setLoading(true);
-      fetching = await fetch(URL);
-      const json = await fetching.json();
+      const requesting = await fetch(URL);
+      const json = await requesting.json();
       data = json;
-    } catch (msgError) {
+    } catch (err) {
       setError(true);
+      throw new Error(err);
     } finally {
       setLoading(false);
     }
 
-    return data;
+    if (data.cod == 200) {
+      return data;
+    } else {
+      return setError(true);
+    }
   };
   return { request, isLoading, error };
 };
