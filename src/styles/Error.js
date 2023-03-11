@@ -26,14 +26,11 @@ export const Bg = styled.div`
   left: 0;
   right: 0;
   margin: auto;
-
+  z-index: 9999;
+  filter: blur(0);
   p {
     margin: 10px 0;
   }
-`;
-
-export const H1Alert = styled.h1`
-  color: #ffc107;
 `;
 
 export const BtnElement = styled.button`

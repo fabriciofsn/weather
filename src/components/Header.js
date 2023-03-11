@@ -7,7 +7,7 @@ import { GlobalContext } from "../hooks/GlobalContext";
 const Header = () => {
   const inputElement = React.useRef();
   const [inputValue, setInputValue] = React.useState("");
-  const { response, isLoading } = React.useContext(GlobalContext);
+  const { response } = React.useContext(GlobalContext);
 
   useEffect(() => {
     if (Object.keys(response).length > 0) {

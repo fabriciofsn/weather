@@ -14,25 +14,34 @@ import Maps from "./Maps";
 
 const Data = ({ value }) => {
   const [data, setData] = React.useState("");
+  const divRef = React.useRef();
+
   const { request, isLoading, error, setError } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${value.inputValue}&appid=a448ce24c0332de60c32afff7f64718a&lang=pt`
   );
-
   useEffect(() => {
     request().then((response) => {
       setData(response);
     });
   }, [value]);
 
+  useEffect(() => {
+    if (error) {
+      divRef.current.style.filter = "blur(5px)";
+    } else {
+      divRef.current.style.filter = "blur(0)";
+    }
+  }, [error]);
+
   const conveterToCelsius = (value) => {
     return (value - 273.15).toFixed(0);
   };
 
   return (
-    <div>
+    <div ref={divRef}>
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
+      {error && <Error showError={setError} />}
       <DivWraper>
-        {error && <Error showError={setError} />}
         <DivInfos>
           <H2Title>Clima em: {data && data.name}</H2Title>
           <DivColorzied>
@@ -63,7 +72,7 @@ const Data = ({ value }) => {
             </span>
           </DivUseful>
         </DivInfos>
-        <DivInfos>{<Maps />}</DivInfos>
+        <DivInfos>{<Maps data={data} />}</DivInfos>
       </DivWraper>
     </div>
   );

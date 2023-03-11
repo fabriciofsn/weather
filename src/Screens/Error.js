@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Bg, BtnElement } from "../styles/Error";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 

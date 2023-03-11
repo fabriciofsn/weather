@@ -26,7 +26,6 @@ export const DivForm = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
 export const Div = styled.div`
   width: 100%;
   max-width: 1200px;
