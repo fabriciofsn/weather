@@ -11,10 +11,11 @@ import {
 } from "../styles/Data";
 import Error from "./Error";
 import Maps from "./Maps";
+import ModalWarning from "./modalWarning";
 
 const Data = ({ value }) => {
   const [data, setData] = React.useState("");
-  const divRef = React.useRef();
+  const [warning, setWarning] = React.useState(true);
 
   const { request, isLoading, error, setError } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${value.inputValue}&appid=a448ce24c0332de60c32afff7f64718a&lang=pt`
@@ -25,20 +26,13 @@ const Data = ({ value }) => {
     });
   }, [value]);
 
-  useEffect(() => {
-    if (error) {
-      divRef.current.style.filter = "blur(5px)";
-    } else {
-      divRef.current.style.filter = "blur(0)";
-    }
-  }, [error]);
-
   const conveterToCelsius = (value) => {
     return (value - 273.15).toFixed(0);
   };
 
   return (
-    <div ref={divRef}>
+    <div>
+      {warning && <ModalWarning warning={setWarning} />}
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
       {error && <Error showError={setError} />}
       <DivWraper>
