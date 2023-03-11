@@ -32,8 +32,8 @@ const Data = ({ value }) => {
 
   return (
     <div>
-      {warning && <ModalWarning warning={setWarning} />}
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
+      {warning && <ModalWarning warning={setWarning} />}
       {error && <Error showError={setError} />}
       <DivWraper>
         <DivInfos>

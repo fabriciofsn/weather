@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
 import Data from "../Screens/Data";
-import { Div, HeaderElement, DivForm } from "../styles/Header";
+import { Div, HeaderElement, DivForm, DivSlignSpin } from "../styles/Header";
 import { VscSearch } from "react-icons/vsc";
 import { GlobalContext } from "../hooks/GlobalContext";
+import useFetch from "../hooks/useFetch";
+import spin from "../Loader/loader.svg";
 
 const Header = () => {
   const inputElement = React.useRef();
   const [inputValue, setInputValue] = React.useState("");
   const { response } = React.useContext(GlobalContext);
+  const { isLoading, setLoading } = useFetch();
 
   useEffect(() => {
+    setLoading(true);
     if (Object.keys(response).length > 0) {
       setInputValue(response.city.name);
+      setLoading(false);
     }
   }, [response]);
 
@@ -40,7 +45,9 @@ const Header = () => {
           </DivForm>
         </Div>
       </HeaderElement>
-
+      <DivSlignSpin>
+        {isLoading && <img src={spin} alt="loader" />}
+      </DivSlignSpin>
       {inputValue && <Data value={{ inputValue }} />}
     </div>
   );

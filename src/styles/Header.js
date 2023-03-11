@@ -74,3 +74,7 @@ export const Div = styled.div`
     padding: 0 0.8rem;
   }
 `;
+
+export const DivSlignSpin = styled.div`
+  text-align: center;
+`;
