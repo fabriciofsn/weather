@@ -5,7 +5,7 @@ export const HeaderElement = styled.header`
   background-color: #111747;
 
   &::after {
-    content: "Clima e previsão do tempo";
+    content: "Clima e Previsão do Tempo";
     color: white;
     padding: 0 1%;
     background-color: #465193;

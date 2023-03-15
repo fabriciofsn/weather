@@ -8,6 +8,7 @@ import {
   DivColorzied,
   DivUseful,
   DivSpin,
+  DivGlobal,
 } from "../styles/Data";
 import Error from "./Error";
 import Maps from "./Maps";
@@ -31,7 +32,7 @@ const Data = ({ value }) => {
   };
 
   return (
-    <div>
+    <DivGlobal>
       <DivSpin>{isLoading && <img src={spin} alt="loader" />}</DivSpin>
       {warning && <ModalWarning warning={setWarning} />}
       {error && <Error showError={setError} />}
@@ -68,7 +69,7 @@ const Data = ({ value }) => {
         </DivInfos>
         <DivInfos>{<Maps data={data} />}</DivInfos>
       </DivWraper>
-    </div>
+    </DivGlobal>
   );
 };
 
