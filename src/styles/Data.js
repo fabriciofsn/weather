@@ -58,8 +58,8 @@ export const DivSpin = styled.div`
 `;
 
 export const DivGlobal = styled.div`
-  background-image: url("../assets/bg1.jpg");
+  background-image: url(${bg});
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-size: 100% 100%;
 `;
